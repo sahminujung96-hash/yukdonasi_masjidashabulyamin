@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi Pembangunan Masjid Ashabul Yamin</title>
+    <meta name="description" content="Bersama membangun Masjid Ashabul Yamin. Salurkan donasi Anda untuk rumah Allah.">
+    
+    <!-- Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS (Lates 5.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration & Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#064637',
+                            primary: '#075B46',
+                            light: '#F8F7F1',
+                            gold: '#D9AF48',
+                            goldhover: '#c59d3d',
+                            gray: '#66736F'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Mengatasi konflik Bootstrap dan Tailwind */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+        a { text-decoration: none !important; }
+        
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Accordion Bootstrap Override */
+        .accordion-button:not(.collapsed) {
+            background-color: #F8F7F1;
+            color: #075B46;
+            font-weight: 700;
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(7, 91, 70, 0.2);
+        }
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem !important;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-gold selection:text-brand-dark relative">
+
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-light py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#beranda" class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-brand-gold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V12l6-4 6 4v10"/><path d="M10 22V12"/><path d="M14 22V12"/><path d="M12 8v4"/><path d="M8 12h8"/></svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-brand-dark text-lg leading-none m-0">Ashabul Yamin</h1>
+                    <p class="text-[10px] sm:text-xs text-brand-gray m-0 mt-1">Bersama Membangun Rumah Allah</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#beranda" class="text-brand-dark font-medium hover:text-brand-primary transition-colors">Beranda</a>
+                <a href="#tentang" class="text-brand-dark font-medium hover:text-brand-primary transition-colors">Tentang</a>
+                <a href="#dokumentasi" class="text-brand-dark font-medium hover:text-brand-primary transition-colors">Dokumentasi</a>
+                <a href="#faq" class="text-brand-dark font-medium hover:text-brand-primary transition-colors">FAQ</a>
+                <a href="#donasi" class="bg-brand-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-brand-dark transition-colors shadow-sm hover:shadow-md">
+                    Donasi Sekarang
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-dark p-2 focus:outline-none">
+                <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white border-t shadow-lg py-4 px-4 flex flex-col gap-4">
+            <a href="#beranda" class="mobile-link text-brand-dark font-medium text-lg py-2 border-b border-gray-100">Beranda</a>
+            <a href="#tentang" class="mobile-link text-brand-dark font-medium text-lg py-2 border-b border-gray-100">Tentang</a>
+            <a href="#dokumentasi" class="mobile-link text-brand-dark font-medium text-lg py-2 border-b border-gray-100">Dokumentasi</a>
+            <a href="#faq" class="mobile-link text-brand-dark font-medium text-lg py-2 border-b border-gray-100">FAQ</a>
+            <a href="#donasi" class="mobile-link text-brand-primary font-bold text-lg py-2">Donasi Sekarang</a>
+        </div>
+    </header>
+
+    <main class="pt-24 md:pt-32">
+        <section id="beranda" class="pb-16 md:pb-24 bg-brand-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 pt-8">
+                    
+                    <!-- Text Content -->
+                    <div class="w-full lg:w-1/2 flex flex-col items-start text-left">
+                        <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6 border border-brand-gold/20">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse-slow"></span>
+                            <span class="text-sm font-semibold text-brand-primary">Sedekah Hari Ini untuk Keberkahan Esok Nanti</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight mb-6">
+                            Bersama Membangun <br/>
+                            <span class="text-brand-primary">Masjid Ashabul Yamin</span>
+                        </h1>
+                        
+                        <p class="text-lg md:text-xl text-brand-gray mb-8 leading-relaxed">
+                            Setiap kontribusi adalah bagian dari ikhtiar bersama untuk menghadirkan tempat ibadah yang lebih nyaman, representatif, dan penuh keberkahan bagi seluruh umat.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                            <a href="#donasi" class="w-full sm:w-auto bg-brand-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-dark transition-all transform hover:-translate-y-1 shadow-lg flex items-center justify-center gap-2">
+                                Donasi Sekarang 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
+                            <a href="#dokumentasi" class="w-full sm:w-auto bg-white text-brand-primary border-2 border-brand-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-light transition-colors flex items-center justify-center">
+                                Lihat Dokumentasi
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image -->
+                    <div class="w-full lg:w-1/2 relative">
+                        <div class="absolute inset-0 bg-brand-primary rounded-3xl transform rotate-3 scale-105 opacity-10"></div>
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="Donasi Pembangunan Masjid Ashabul Yamin (1).png" alt="Poster Pembangunan Masjid Ashabul Yamin" class="w-full h-auto object-cover" loading="eager">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">
+                        Bersama Mewujudkan Masjid yang Lebih Nyaman
+                    </h2>
+                    <p class="text-lg text-brand-gray leading-relaxed">
+                        Pembangunan masjid merupakan ikhtiar bersama. Melalui dukungan dan partisipasi masyarakat, kita berharap dapat melanjutkan pembangunan Masjid Ashabul Yamin agar semakin nyaman digunakan untuk beribadah dan kegiatan keagamaan.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-brand-light p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 text-brand-gold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V12l6-4 6 4v10"/><path d="M10 22V12"/><path d="M14 22V12"/><path d="M12 8v4"/><path d="M8 12h8"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Wujudkan Masjid Impian</h3>
+                        <p class="text-brand-gray leading-relaxed">Bersama kita bangun masjid yang lebih layak, representatif, dan nyaman untuk jamaah.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-brand-light p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 text-brand-gold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Dukung Kegiatan Ibadah</h3>
+                        <p class="text-brand-gray leading-relaxed">Membantu kelancaran ibadah, taklim, dan berbagai kegiatan keagamaan di lingkungan masjid.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-brand-light p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
+                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6 text-brand-gold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Raih Pahala Jariyah</h3>
+                        <p class="text-brand-gray leading-relaxed">Setiap rupiah yang Anda donasikan insya Allah akan menjadi amal jariyah yang tak terputus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donasi" class="py-20 bg-brand-primary relative overflow-hidden">
+            <!-- Pattern Overlay -->
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#D9AF48 1px, transparent 1px); background-size: 30px 30px;"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Jadilah Bagian dari Kebaikan Ini
+                    </h2>
+                    <p class="text-lg text-brand-light/90">
+                        Bantuan Anda, sesuai kemampuan, menjadi bagian dari ikhtiar bersama dalam pembangunan Masjid Ashabul Yamin. Salurkan donasi terbaik Anda.
+                    </p>
+                </div>
+
+                <!-- Donation Card -->
+                <div class="bg-white rounded-3xl p-6 md:p-10 shadow-2xl border border-brand-gold/30 max-w-2xl mx-auto transform hover:scale-[1.01] transition-transform">
+                    <div class="flex flex-col items-center border-b border-gray-100 pb-8 mb-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-brand-primary mb-2 uppercase tracking-wide">
+                            Bank Syariah Indonesia (BSI)
+                        </h3>
+                        <p class="text-brand-gray">Transfer Bank secara Langsung</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <label class="text-sm font-semibold text-brand-gray uppercase tracking-wider block mb-2">Nomor Rekening</label>
+                            <div class="flex flex-col sm:flex-row gap-4 items-center justify-between bg-brand-light p-4 rounded-2xl border border-gray-200">
+                                <span id="rekening-number" class="text-3xl md:text-4xl font-extrabold text-brand-dark font-mono tracking-widest break-all">
+                                    7380963218
+                                </span>
+                                <button id="btn-copy" onclick="copyRekening()" class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold transition-all w-full sm:w-auto bg-brand-gold text-brand-dark hover:bg-brand-goldhover hover:shadow-md">
+                                    <svg id="icon-copy" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    <span id="text-copy">Salin Rekening</span>
+                                </button>
+                            </div>
+                            <!-- Feedback Message -->
+                            <div class="h-6 mt-2 text-center">
+                                <p id="copy-feedback" class="text-green-600 font-medium text-sm hidden animate-fade-in-up">Nomor rekening berhasil disalin.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-sm font-semibold text-brand-gray uppercase tracking-wider block mb-1">Atas Nama</label>
+                            <p class="text-xl font-bold text-brand-dark">MASJID ASHABUL YAMIN</p>
+                        </div>
+                        
+                        <!-- WhatsApp Confirmation Button -->
+                        <div class="pt-6 mt-4 border-t border-gray-100">
+                            <a href="https://api.whatsapp.com/send?phone=6282154577983&text=Assalamu'alaikum,%20saya%20ingin%20mengonfirmasi%20donasi%20untuk%20pembangunan%20Masjid%20Ashabul%20Yamin.%0A%0ANama%20%3A%0ATotal%20%3A%0AKeterangan%20%3A" target="_blank" rel="noopener noreferrer" class="w-full bg-[#25D366] text-white px-6 py-3.5 sm:py-4 rounded-xl font-bold text-[17px] hover:bg-[#20bd5a] transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg active:scale-[0.98]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12c0 1.76.46 3.42 1.25 4.88L2 22l5.31-1.21A9.957 9.957 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 11.99 2zm5.49 14.54c-.21.59-1.22 1.13-1.69 1.18-.44.05-.98.14-2.8-.62-2.19-.92-3.6-3.17-3.71-3.32-.11-.15-.89-1.18-.89-2.26 0-1.07.56-1.6.76-1.82.2-.21.43-.27.58-.27.15 0 .3 0 .43.01.14.01.33-.05.51.39.19.45.65 1.58.71 1.7.06.12.1.26.02.42-.08.15-.12.24-.24.38-.12.14-.25.32-.36.43-.13.13-.27.27-.12.53.15.26.66 1.1 1.42 1.78.98.88 1.8 1.15 2.06 1.28.26.13.41.11.56-.06.15-.17.65-.76.82-1.02.18-.26.35-.22.58-.13.24.08 1.5.71 1.76.84.26.13.43.19.49.3.06.11.06.64-.15 1.23z"/></svg>
+                                Konfirmasi via WhatsApp
+                            </a>
+                            <p class="text-center text-xs text-brand-gray mt-3">Silakan konfirmasi jika Anda sudah melakukan transfer. (0821-5457-7983)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dokumentasi" class="py-20 bg-brand-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">
+                        Dokumentasi Pembangunan
+                    </h2>
+                    <p class="text-lg text-brand-gray">
+                        Kondisi terkini proyek pembangunan Masjid Ashabul Yamin. Setiap progres adalah hasil dari doa dan dukungan para donatur.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-white p-4 md:p-8 rounded-3xl shadow-xl border border-gray-100">
+                    <div class="rounded-2xl overflow-hidden bg-gray-100 relative group">
+                        <img src="Donasi Pembangunan Masjid Ashabul Yamin (1).png" alt="Kolase Dokumentasi Pembangunan Masjid Ashabul Yamin" class="w-full h-auto object-contain" loading="lazy">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <p class="text-white font-medium bg-black/50 px-6 py-3 rounded-full backdrop-blur-sm pointer-events-none">
+                                Poster Kampanye Resmi
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-brand-gray flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                            Gambar di atas memuat dokumentasi asli struktur, tampak depan, dan pengerjaan bagian dalam masjid.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="#donasi" class="bg-brand-gold text-brand-dark px-8 py-3 rounded-full font-bold text-lg hover:bg-brand-goldhover transition-colors shadow-md inline-flex items-center gap-2">
+                        Dukung Pembangunan Masjid
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="panduan" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <!-- Panduan -->
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-brand-dark mb-8">
+                            Panduan Cara Berdonasi
+                        </h2>
+                        <div class="space-y-8">
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full bg-brand-light border-2 border-brand-gold flex items-center justify-center text-brand-primary font-bold text-xl">01</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-dark mb-2">Salin Nomor Rekening</h3>
+                                    <p class="text-brand-gray leading-relaxed">Tekan tombol salin pada area rekening BSI di atas untuk menyalin nomor rekening dengan mudah.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full bg-brand-light border-2 border-brand-gold flex items-center justify-center text-brand-primary font-bold text-xl">02</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-dark mb-2">Lakukan Transfer</h3>
+                                    <p class="text-brand-gray leading-relaxed">Gunakan aplikasi Mobile Banking, Internet Banking, atau ATM Anda untuk melakukan transfer ke rekening tersebut.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-14 h-14 rounded-full bg-brand-light border-2 border-brand-gold flex items-center justify-center text-brand-primary font-bold text-xl">03</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-dark mb-2">Konfirmasi via WhatsApp</h3>
+                                    <p class="text-brand-gray leading-relaxed">Simpan bukti transfer dan tekan tombol <span class="font-bold text-green-600">Konfirmasi via WhatsApp</span> (0821-5457-7983) untuk pendataan oleh pengelola.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transparansi -->
+                    <div class="bg-brand-light p-8 md:p-10 rounded-3xl border border-gray-200">
+                        <div class="flex items-center gap-3 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-brand-primary" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                            <h2 class="text-2xl md:text-3xl font-bold text-brand-dark">
+                                Transparansi Donasi
+                            </h2>
+                        </div>
+                        <p class="text-brand-gray leading-relaxed mb-8">
+                            Kami berkomitmen untuk mengelola setiap rupiah bantuan yang diamanahkan secara bertanggung jawab penuh untuk kelancaran pembangunan Masjid Ashabul Yamin.
+                        </p>
+                        
+                        <div class="bg-white p-6 rounded-2xl border border-gray-100 flex flex-col items-center justify-center text-center py-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="text-brand-gold mb-4" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                            <h4 class="font-bold text-brand-dark mb-2">Laporan Sedang Disiapkan</h4>
+                            <p class="text-sm text-brand-gray">
+                                Informasi laporan penggunaan dana dan perkembangan pembangunan yang terperinci akan ditampilkan di bagian ini setelah data tersedia dari pihak pengelola resmi.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 bg-brand-light">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">
+                        Pertanyaan Umum
+                    </h2>
+                    <p class="text-brand-gray">Hal-hal yang sering ditanyakan seputar donasi.</p>
+                </div>
+
+                <!-- Menggunakan Bootstrap 5 Accordion -->
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed py-4 px-6 text-brand-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Bagaimana cara membantu pembangunan masjid?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-brand-gray pt-0 pb-4 px-6 border-t border-gray-100 mt-2">
+                                Anda dapat membantu dengan menyalurkan donasi melalui transfer ke rekening resmi yang tertera di website ini. Selain dukungan dana, doa dan penyebaran informasi kampanye ini juga sangat berharga bagi kami.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed py-4 px-6 text-brand-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Melalui rekening apa donasi dapat disalurkan?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-brand-gray pt-0 pb-4 px-6 border-t border-gray-100 mt-2">
+                                Donasi dapat disalurkan secara eksklusif melalui Bank Syariah Indonesia (BSI) dengan nomor rekening 7380963218 atas nama MASJID ASHABUL YAMIN.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed py-4 px-6 text-brand-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Apakah saya dapat berdonasi sesuai kemampuan?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-brand-gray pt-0 pb-4 px-6 border-t border-gray-100 mt-2">
+                                Tentu saja. Kami menerima donasi berapapun jumlahnya. Setiap rupiah yang Anda sedekahkan adalah bagian dari ikhtiar bersama dan bernilai amal jariyah insya Allah.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border-0">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed py-4 px-6 text-brand-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Bagaimana cara menghubungi pengelola masjid atau konfirmasi?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-brand-gray pt-0 pb-4 px-6 border-t border-gray-100 mt-2">
+                                Anda dapat mengonfirmasi donasi atau menghubungi pengelola proyek pembangunan melalui layanan pesan WhatsApp di nomor <strong>0821-5457-7983</strong>. Tautan langsung tersedia di bagian kartu donasi di atas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brand-dark pt-16 pb-24 md:pb-8 border-t-[8px] border-brand-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-brand-gold">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V12l6-4 6 4v10"/><path d="M10 22V12"/><path d="M14 22V12"/><path d="M12 8v4"/><path d="M8 12h8"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-xl leading-none">Ashabul Yamin</h3>
+                        </div>
+                    </div>
+                    <p class="text-brand-light/70 leading-relaxed max-w-sm">
+                        Ikhtiar bersama membangun rumah Allah. Dukungan Anda sangat berarti untuk kenyamanan ibadah dan kegiatan umat. Jazakumullahu Khairan.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Navigasi</h4>
+                    <ul class="space-y-3 p-0 m-0 list-none">
+                        <li><a href="#beranda" class="text-brand-light/70 hover:text-brand-gold transition-colors">Beranda</a></li>
+                        <li><a href="#tentang" class="text-brand-light/70 hover:text-brand-gold transition-colors">Tentang</a></li>
+                        <li><a href="#dokumentasi" class="text-brand-light/70 hover:text-brand-gold transition-colors">Dokumentasi</a></li>
+                        <li><a href="#donasi" class="text-brand-light/70 hover:text-brand-gold transition-colors">Donasi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Informasi Donasi</h4>
+                    <ul class="space-y-2 text-brand-light/70 p-0 m-0 list-none">
+                        <li class="font-medium text-white">Bank Syariah Indonesia (BSI)</li>
+                        <li>No. Rek: <span class="text-brand-gold font-bold">7380963218</span></li>
+                        <li>A.N: MASJID ASHABUL YAMIN</li>
+                        <li class="mt-4"><a href="https://wa.me/6282154577983" target="_blank" class="text-[#25D366] hover:text-white transition-colors flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12c0 1.76.46 3.42 1.25 4.88L2 22l5.31-1.21A9.957 9.957 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 11.99 2zm5.49 14.54c-.21.59-1.22 1.13-1.69 1.18-.44.05-.98.14-2.8-.62-2.19-.92-3.6-3.17-3.71-3.32-.11-.15-.89-1.18-.89-2.26 0-1.07.56-1.6.76-1.82.2-.21.43-.27.58-.27.15 0 .3 0 .43.01.14.01.33-.05.51.39.19.45.65 1.58.71 1.7.06.12.1.26.02.42-.08.15-.12.24-.24.38-.12.14-.25.32-.36.43-.13.13-.27.27-.12.53.15.26.66 1.1 1.42 1.78.98.88 1.8 1.15 2.06 1.28.26.13.41.11.56-.06.15-.17.65-.76.82-1.02.18-.26.35-.22.58-.13.24.08 1.5.71 1.76.84.26.13.43.19.49.3.06.11.06.64-.15 1.23z"/></svg> 0821-5457-7983</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col justify-center items-center gap-4">
+                <p class="text-brand-light/50 text-sm text-center">
+                    &copy; <span id="year"></span> Masjid Ashabul Yamin. Semua hak cipta dilindungi.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Mobile CTA -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 md:hidden z-40 bg-gradient-to-t from-white via-white to-transparent pb-6 pointer-events-none">
+        <a href="#donasi" class="w-full bg-brand-primary text-white px-6 py-4 rounded-2xl font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-brand-dark transition-colors pointer-events-auto flex items-center justify-center gap-2 border-2 border-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-brand-gold" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> 
+            Donasi Sekarang
+        </a>
+    </div>
+
+    <!-- Bootstrap JS bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('glass-nav', 'shadow-md');
+                navbar.classList.remove('bg-brand-light');
+            } else {
+                navbar.classList.remove('glass-nav', 'shadow-md');
+                navbar.classList.add('bg-brand-light');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            iconMenu.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Copy to Clipboard Logic
+        function copyRekening() {
+            const accountNumber = '7380963218';
+            
+            // Create temporary textarea for universal copy execution
+            const textArea = document.createElement("textarea");
+            textArea.value = accountNumber;
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // UI Changes on Success
+                const btn = document.getElementById('btn-copy');
+                const textCopy = document.getElementById('text-copy');
+                const iconCopy = document.getElementById('icon-copy');
+                const feedback = document.getElementById('copy-feedback');
+                
+                // Change style to success
+                btn.classList.remove('bg-brand-gold', 'text-brand-dark');
+                btn.classList.add('bg-green-100', 'text-green-700');
+                textCopy.textContent = "Tersalin";
+                iconCopy.innerHTML = `<path d="M20 6 9 17l-5-5"/>`; // Checkmark SVG
+                feedback.classList.remove('hidden');
+                
+                // Reset after 2.5 seconds
+                setTimeout(() => {
+                    btn.classList.add('bg-brand-gold', 'text-brand-dark');
+                    btn.classList.remove('bg-green-100', 'text-green-700');
+                    textCopy.textContent = "Salin Rekening";
+                    iconCopy.innerHTML = `<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>`;
+                    feedback.classList.add('hidden');
+                }, 2500);
+
+            } catch (err) {
+                console.error('Gagal menyalin:', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+    </script>
+</body>
+</html>
